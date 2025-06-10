@@ -5,7 +5,7 @@
 imu: 1         
 num_of_cam: 2  
 
-imu_topic: "/mavros/imu/data_raw"
+imu_topic: "/imu/data"
 image0_topic: "/camera/infra1/image_rect_raw"
 image1_topic: "/camera/infra2/image_rect_raw"
 output_path: "/home/kay/output/"
@@ -24,31 +24,28 @@ body_T_cam0: !!opencv-matrix
    rows: 4
    cols: 4
    dt: d
-   data: [ 0,   -0.5,          0.866025404,  0.0460,
-          -1,    0,            0,            0.0175,
-           0,   -0.866025404, -0.5,         -0.12673,
-           0,    0,            0,            1]
-
+   data: [-0.01808018, -0.02867715, 0.9994252, 0.03275482,
+          -0.99975249, -0.01244234, -0.01844312, 0.0168819,
+          0.01296408, -0.99951129, -0.02844509, -0.07076199,
+          0, 0, 0, 1]
 
 body_T_cam1: !!opencv-matrix
    rows: 4
    cols: 4
    dt: d
-   data: [ 0,  -0.5,           0.866025404, 0.0460,
-          -1,   0,             0,          -0.0325,
-           0,  -0.866025404,  -0.5,        -0.12673,
-           0,   0,             0,           1]
-
-
+   data: [-0.01323805, -0.02954701, 0.99947573, 0.03107199,
+          -0.99982543, -0.01279023, -0.01362079, -0.03328976,
+          0.01318598, -0.99948156, -0.02937253, -0.07006587,
+          0, 0, 0, 1]
 
 #Multiple thread support
-multiple_thread: 0 # 0: single thread; 1: multi-thread
+# multiple_thread: 8
 use_gpu: 1
 use_gpu_acc_flow: 1
 
 #feature traker paprameters
 max_cnt: 120            # max feature number in feature tracking
-min_dist: 80            # min distance between two features 
+min_dist: 25            # min distance between two features 
 freq: 0                # frequence (Hz) of publish tracking result. At least 10Hz for good estimation. If set 0, the frequence will be same as raw image 
 F_threshold: 1.0        # ransac threshold (pixel)
 show_track: 1           # publish tracking image as topic
@@ -60,10 +57,10 @@ max_num_iterations: 8   # max solver itrations, to guarantee real time
 keyframe_parallax: 10.0 # keyframe selection threshold (pixel)
 
 #imu parameters       The more accurate parameters you provide, the better performance
-acc_n: 0.0070708          # accelerometer measurement noise standard deviation. 
-gyr_n: 0.0004326         # gyroscope measurement noise standard deviation.     
-acc_w: 3.6921e-04        # accelerometer bias random work noise standard deviation.  
-gyr_w: 1.2810e-05       # gyroscope bias random work noise standard deviation.     
+acc_n: 0.0544320178          # accelerometer measurement noise standard deviation. 
+gyr_n: 0.007239550599999999         # gyroscope measurement noise standard deviation.     
+acc_w: 0.00063247073635215        # accelerometer bias random work noise standard deviation.  
+gyr_w: 1.839643947985897e-06       # gyroscope bias random work noise standard deviation.     
 g_norm: 9.81007     # gravity magnitude
 
 #unsynchronization parameters
