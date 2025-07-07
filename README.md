@@ -30,7 +30,8 @@ pubLatestOdometry(const Eigen::Vector3d &P, const Eigen::Quaterniond &Q, const E
 
 to
 
-```pubLatestOdometry(const Eigen::Vector3d &P, const Eigen::Quaterniond &Q, const Eigen::Vector3d &V, const Eigen::Vector3d &W, double t);
+```
+pubLatestOdometry(const Eigen::Vector3d &P, const Eigen::Quaterniond &Q, const Eigen::Vector3d &V, const Eigen::Vector3d &W, double t);
 ```
 
 visualization.cpp
